@@ -1,0 +1,117 @@
+html,
+body,
+#root {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+header {
+  background-color: rgb(163, 218, 220);
+  border: solid darkred 1px;
+  border-radius: 3px;
+}
+
+header h1 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: darkred;
+  margin: 0;
+  padding: 20px
+}
+
+a {
+  color: rgb(163, 218, 220);
+  text-decoration: none;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding: 5px;
+}
+
+
+
+a:hover {
+  color: white
+}
+
+a.active {
+  color: white;
+  text-decoration: underline;
+}
+
+li :not(:nth-child(3)) {
+  border-right: solid;
+}
+
+ul,
+header h1,
+.outlet {
+  width: 85%;
+  margin: auto;
+  list-style: none;
+}
+
+ul li {
+  display: inline;
+}
+
+nav {
+  font-size: larger;
+  background-color: darkred;
+  text-align: right;
+}
+
+p span {
+  color: darkred
+}
+
+.homePage {
+  font-size: 40px;
+  background-image: linear-gradient(rgb(163, 218, 220), darkred);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.homePage p:first-child {
+  font-size: 60px;
+}
+
+.sellHomeForm p {
+  display: inline;
+}
+
+.sellHomeForm input:not([type="checkbox"]),
+.sellHomeForm fieldset input {
+  display: block;
+}
+
+.sellHomeForm input[type="checkbox"] {
+  margin-left: 10px;
+}
+
+.property {
+  position: relative;
+
+  display: flex;
+  border: solid black 2px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  padding: 10px
+}
+
+.property img {
+  position: absolute;
+  right: 0;
+}
+
+.buyHome h2 {
+  font-family: 'Segoe UI';
+
+}
+
+.text h3 {
+  font-family: 'Segoe UI';
+}
+
+.text p {
+  font-family: monospace;
+}

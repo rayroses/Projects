@@ -1,0 +1,42 @@
+[
+    {
+        "address": {
+            "street": "9331 St Louis St.",
+            "city": "South Richmond Hill",
+            "state": "NY",
+            "zip": "11419"
+        },
+        "price": "4.5M",
+        "imgSrc": "./public/images/prop1.jpg"
+    },
+    {
+        "address": {
+            "street": "89 Valley Rd.",
+            "city": "Tonawanda",
+            "state": "NY",
+            "zip": "14150"
+        },
+        "price": "3.2M",
+        "imgSrc": "./public/images/prop2.jpg"
+    },
+    {
+        "address": {
+            "street": "90 New St.",
+            "city": "Buffalo",
+            "state": "NY",
+            "zip": "14215"
+        },
+        "price": "3.7M",
+        "imgSrc": "./public/images/prop3.jpg"
+    },
+    {
+        "address": {
+            "street": "8504 Forest St.",
+            "city": "Bronx",
+            "state": "NY",
+            "zip": "10456"
+        },
+        "price": "4.1M",
+        "imgSrc": "./public/images/prop4.jpg"
+    }
+]
