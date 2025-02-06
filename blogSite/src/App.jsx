@@ -10,7 +10,7 @@ export async function fetchData(fetchUrl) {
       throw new Error(`${r.status}- ${r.statusText}`);
     }
     const fetchedInfo = await r.json();
-    // save fetched info to local storace matching to this url before return, include the date/time
+    // save fetched info to local storage matching to this url before return, include the date/time
     return fetchedInfo;
   }
   catch (e) {
