@@ -1,0 +1,15 @@
+#pagination {
+    position: absolute;
+    right: 0px;
+    margin-top: 10px;
+}
+
+#pagination div {}
+
+.page-link.activePage {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.page-item {
+    margin: 2px
+}

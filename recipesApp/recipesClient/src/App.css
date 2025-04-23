@@ -1,0 +1,24 @@
+#icon {
+  width: 20em;
+}
+
+body {
+  width: 95%;
+  margin: auto;
+  font-family: cursive, Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+
+
+
+
+a:not(.recipeInfo) {
+  text-decoration: none;
+  font-size: 1.5em;
+  color: blue
+}
+
+a:not(.recipeInfo):hover {
+  color: red
+}

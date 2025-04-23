@@ -1,0 +1,13 @@
+.bulletless {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 35px;
+}
+
+#ingredients .item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-height: 300px;
+  justify-items: start;
+}

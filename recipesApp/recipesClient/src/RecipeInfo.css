@@ -1,0 +1,36 @@
+.imgInRecipeInfo {
+  /* This sets up the container to be a positioning context */
+  /* Optional: allows the container to wrap the image */
+}
+
+.imgInRecipeInfo img {
+  width: 100%;
+  height: auto;
+  border-radius: 30px;
+  border: solid transparent;
+
+
+}
+
+.recipeInfo {
+  border-radius: 30px;
+  background-color: white;
+  text-align: center;
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  padding-bottom: 30px;
+  align-items: center;
+}
+
+.recipeInfo p {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.recipeInfo p.category {
+  background-color: rgb(232, 250, 102);
+}

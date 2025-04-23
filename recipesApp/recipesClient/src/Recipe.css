@@ -1,0 +1,52 @@
+.recipe {
+    text-align: center;
+}
+
+#showHideRecipe img {
+    position: absolute;
+    top: 0;
+}
+
+#showHidePicture {}
+
+#pictureDiv {
+    margin-bottom: 20px;
+}
+
+#pictureDiv img {
+    margin-bottom: 10px
+}
+
+#ingredients,
+#directions {
+    background-color: lightgray;
+    margin-bottom: 50px;
+    border-radius: 30px;
+    padding: 70px;
+    text-align: left;
+
+}
+
+#ingredients h5,
+#directions h5 {
+    font-size: 40px;
+}
+
+.recipe button {
+    border-radius: 30px;
+    font-size: 20px;
+    padding: 10px;
+    border: solid black;
+    cursor: pointer;
+}
+
+@media (min-width: 1025px)  {
+
+    #ingredients,
+    #directions {
+        width: 50%;
+        margin:  50px auto;
+
+    }
+}
+

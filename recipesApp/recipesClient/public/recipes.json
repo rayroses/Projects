@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Chulent",
+    "category": "mains",
+    "ingredients": [
+      "meat",
+      "potatoes",
+      "all sorts of beans"
+    ],
+    "directions": [
+      "put ingredients in pot",
+      "add spices",
+      "cook"
+    ],
+    "picture": "cholent.jpg"
+  },
+  {
+    "id": 2,
+    "name": "vegetable soup",
+    "category": "soups",
+    "ingredients": [
+      "water",
+      "vegetables",
+      "spices"
+    ],
+    "directions": [
+      "add water to pot",
+      "boil water",
+      "add ingredients"
+    ],
+    "picture": "vegetableSoup.jpg"
+  }
+]
