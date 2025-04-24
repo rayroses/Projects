@@ -2,52 +2,49 @@
 import { PropTypes } from 'prop-types';
 import { useEffect, useState } from 'react';
 import { fetchData } from './App';
+import Comments from './Comments';
 
 export default function Post(props) {
     const [commentsState, toggleComments] = useState(false);
-    const [comments, setComments] = useState([]);
-    const [postClass, setPostClass] = useState('post');
-    
-    const setClass = (pClass) => {
-        setPostClass(`post ${pClass}`);
-    }
-    useEffect(() => {
-        (async () => {
-            const comments = await fetchData(`https://jsonplaceholder.typicode.com/comments?postId=${props.postId}`);
-            setComments(comments);
-        })();
-    }, [])
+    const [divClass, setClass] = useState('');
+    let [comments, setComments] = useState([]);
+
+
+
     useEffect(() => {
         if (commentsState) {
-            setClass('commentsClicked')
+            setClass('showingComments')
 
         }
         else {
-            setClass('post')
+            setClass('')
         }
 
     }, [commentsState])
 
-
+    const updateComments = (comments) => {
+        setComments(comments)
+    }
 
     const handleButtonClicked = () => {
         toggleComments(!commentsState);
     }
 
     const buttonText = commentsState ? 'hide comments' : 'show comments'
-    const commentsDivJsx = commentsState ?
-        <div className='commentsDiv'>
-            {comments.map(c => <div className='comment' key={c.id}><h3>{c.name}</h3> <p>{c.body}</p></div>)}
-        </div> : null
+    const commentsJsx = commentsState ? <Comments comments={comments} setComments={updateComments} postId={props.postId} /> : null
+
+
     return (
 
-        <div className={postClass}>
+        <div className={`post ${divClass}`}>
             <div id="mainPostBody">
                 <h3>{props.postTitle}</h3>
                 <p>{props.postBody}</p>
                 <button className='showHideComments' onClick={handleButtonClicked}>{buttonText}</button>
             </div>
-            {commentsDivJsx}
+            <div className={`comments ${divClass}`}>
+                {commentsJsx}
+            </div>
         </div>
 
     )
