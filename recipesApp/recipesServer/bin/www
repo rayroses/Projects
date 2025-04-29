@@ -5,9 +5,9 @@
  */
 
 import app from '../app.js';
-import debugLib from 'debug' ;
-const debug= debugLib('recipesserver:server')
-import http from'http';
+import debugLib from 'debug';
+const debug = debugLib('recipesserver:server')
+import http from 'http';
 
 /**
  * Get port from environment and store in Express.
