@@ -21,7 +21,7 @@ router.get('/', async function (req, res, next) {
     const page = Number(req.query.page) || 1;
     const itemsPerPage = Number(req.query.limit) || 9;
     console.log(connectionPool)
-    console.log(process.env.MYSQL_PASSWORD)
+    
     const [response] = await connectionPool.execute(
       'SELECT * FROM recipes'
     );
