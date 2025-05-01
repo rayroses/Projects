@@ -19,13 +19,10 @@ export const recipeSchema = joi.object({
 router.get('/', async function (req, res, next) {
   try {
     const page = Number(req.query.page) || 1;
-    const itemsPerPage = Number(req.query.limit) || 9;
-    console.log(connectionPool)
-    
+    const itemsPerPage = Number(req.query.limit) || 9;    
     const [response] = await connectionPool.execute(
       'SELECT * FROM recipes'
     );
-    console.log(response)
     const totalPages = Math.ceil(response.length / itemsPerPage);
     const currentIndex = (page - 1) * itemsPerPage;
     const limitedResponses = response.slice(currentIndex, currentIndex + itemsPerPage);
