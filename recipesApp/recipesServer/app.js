@@ -37,6 +37,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/public/images', express.static(path.join(__dirname, 'public/images')));
 
 //app.use(cors({ origin: 'http://localhost:3000' }));
+app.use('/', recipesRouter);
 app.use('/recipes-api', recipesRouter);
 
 
