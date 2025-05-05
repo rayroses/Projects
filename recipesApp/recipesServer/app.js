@@ -39,13 +39,21 @@ app.use('/public/images', express.static(path.join(__dirname, 'public/images')))
 //app.use(cors({ origin: 'http://localhost:3000' }));
 
 app.use('/recipes-api', recipesRouter);
+app.use('/recipes-api', (req, res, next) => {
+  const err = new Error(`API route not found: ${req.originalUrl}`);
+  err.status = 404;
+  next(err);
+});
+
 app.get('*', (req, res) => {
+  if (req.method !== 'GET') return next(); 
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
+app.use((req, res, next) => {
+  const err = new Error(`Route not found: ${req.originalUrl}`);
+  err.status = 404;
+  next(err);
 });
 
 // error handler
