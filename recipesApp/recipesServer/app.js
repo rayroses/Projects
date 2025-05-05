@@ -36,7 +36,7 @@ next();
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/public/images', express.static(path.join(__dirname, 'public/images')));
 
-//app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: 'http://localhost:3000' }));
 
 app.use('/recipes-api', recipesRouter);
 app.use('/recipes-api', (req, res, next) => {
@@ -58,7 +58,7 @@ app.use((req, res, next) => {
 
 // error handler
 app.use(function (err, req, res, next) {
-  console.log('in error at server')
+  console.log('in error at server for a strange reason')
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
