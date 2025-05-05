@@ -37,16 +37,11 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/public/images', express.static(path.join(__dirname, 'public/images')));
 
 //app.use(cors({ origin: 'http://localhost:3000' }));
-app.use((req, res, next) => {
-  if (!req.originalUrl.startsWith('/recipes-api')) {
-    req.url = `/recipes-api${req.url}`
-  }
-  console.log('new url:', req.url);
-  next()
-}
-)
-app.use('/recipes-api', recipesRouter);
 
+app.use('/recipes-api', recipesRouter);
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -64,8 +59,6 @@ app.use(function (err, req, res, next) {
   res.send(err);
 });
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+
 
 export default app;
