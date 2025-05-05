@@ -41,6 +41,7 @@ app.use((req, res, next)=>{
   if (!req.originalUrl.startsWith('/recipes-api')){
     req.url=`/recipes-api${req.url}`
   }
+   console.log('new url:', req.url)
 })
 app.use('/recipes-api', recipesRouter);
 
