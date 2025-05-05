@@ -37,12 +37,14 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/public/images', express.static(path.join(__dirname, 'public/images')));
 
 //app.use(cors({ origin: 'http://localhost:3000' }));
-app.use((req, res, next)=>{
-  if (!req.originalUrl.startsWith('/recipes-api')){
-    req.url=`/recipes-api${req.url}`
+app.use((req, res, next) => {
+  if (!req.originalUrl.startsWith('/recipes-api')) {
+    req.url = `/recipes-api${req.url}`
   }
-   console.log('new url:', req.url)
-})
+  console.log('new url:', req.url);
+  next()
+}
+)
 app.use('/recipes-api', recipesRouter);
 
 
