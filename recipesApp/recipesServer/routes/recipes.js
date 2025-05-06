@@ -37,9 +37,6 @@ router.get('/:id', async (req, res, next) => {
     const [response] = await connectionPool.execute(
       'SELECT name, category, ingredients, directions, image FROM recipes WHERE id=?', [req.params.id]
     );
-    console.log(response)
-    //automatically responds with a 200 ok status code
-    //response is an array with one recipe in it
     res.send(response[0]);
   }
   catch (err) {
@@ -89,7 +86,6 @@ router.put('/:id', upload.single('image'), async (req, res, next) => {
     const [response] = await connectionPool.execute(
       'UPDATE  recipes SET name=?, category=?, ingredients=?, directions=? WHERE id=?', [name, category, ingredients, directions, recipeId]
     );
-    console.log(response)
     if (!response.affectedRows) {
       return res.status(404).send(`unable to find recipe with id of ${recipeId}`);
     }
@@ -116,7 +112,6 @@ router.put('/:id', upload.single('image'), async (req, res, next) => {
     res.status(200).send(req.body);
   }
   catch (err) {
-    console.log(err)
     next(err);
   }
 });
@@ -128,7 +123,6 @@ router.delete('/:id', async (req, res, next) => {
     if (!response.affectedRows) {
       return res.status(404).send(`unable to find recipe with id of ${req.params.id}`);
     }
-    //automatically calls res.end();
     res.sendStatus(204);
   }
   catch (err) {
