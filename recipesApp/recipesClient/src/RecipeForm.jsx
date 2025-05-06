@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import ErrorElem from './Error'
 
-
-
-
 export default function RecipeForm(props) {
     const { name, category, ingredients, directions, image } = props.recipeToEdit || {}
     const [state, setState] = useState(
@@ -81,7 +78,7 @@ export default function RecipeForm(props) {
                     {showError ? <ErrorElem errorString={errorString} errorMessage={errorMessage} /> : null}
                     <div>
                         <button type="reset" onClick={handleClear}>clear</button>
-                        <button type="submit" /*onClick={handleRecipeSubmit}*/>{props.recipeToEdit ? 'edit' : 'submit recipe'}</button>
+                        <button type="submit">{props.recipeToEdit ? 'edit' : 'submit recipe'}</button>
 
                         <button type="button" onClick={closeForm}>cancel</button>
                     </div>

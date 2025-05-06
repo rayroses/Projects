@@ -30,11 +30,8 @@ export default function Recipe(props) {
       <button onClick={(e) => { showRecipeForm(e, recipe) }}>edit recipe</button>
     </div>
     : errorString ? <ErrorElem errorString={errorString} errorMessage={'Recipe cannot be loaded due to an invalid url or server error. Please try again later or contact the site administrator'} />
-
       : <div>loading...</div>
   return (
-
-
     recipeJsx
   )
 }
@@ -48,8 +45,7 @@ Recipe.propTypes = {
     directions: PropTypes.string.isRequired,
     image: PropTypes.string
   })).isRequired,
-
-  showRecipeForm: PropTypes.func/*.isRequired*/
+  showRecipeForm: PropTypes.func
 
 
 }

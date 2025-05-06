@@ -4,7 +4,8 @@ import RecipeList from './RecipeList';
 import RecipeForm from './RecipeForm';
 import Footer from './Footer';
 import Header from './Header'
-import { Navigate, Routes, Route } from 'react-router'
+import { Routes, Route } from 'react-router'
+import ErrorElem from './Error';
 import './App.css'
 
 export default function App() {
@@ -24,15 +25,11 @@ export default function App() {
   useEffect(() => {
     (async () => {
       try {
-
-        const r = await fetch(`/recipes-api?page=${state.page}&limit=9`);
+        const r = await fetch(`/recipes-api/?page=${state.page}&limit=9`);
         if (!r.ok) {
-          // const msg = await r.text();
           throw new Error(`${r.status} - ${r.statusText}  `);
         }
         const response = await r.json();
-        console.log('response: ', response)
-
         setState(prevState => {
           return {
             ...prevState,
@@ -42,8 +39,6 @@ export default function App() {
         });
         hideError()
         setActivePagination();
-
-
       }
       catch (e) {
         console.error(e);
@@ -89,7 +84,6 @@ export default function App() {
     document.querySelector(`#page${state.page}`)?.classList.add('activePage');
 
   }
-
   const showRecipeForm = (e, recipeToEdit) => {
     setState(prevState => {
       return {
@@ -126,7 +120,6 @@ export default function App() {
         constainsError: false,
         errorString: null,
         errorMessage: null
-
       }
     })
   }
@@ -143,26 +136,14 @@ export default function App() {
   }
   const addRecipe = async (recipe) => {
     let response;
-
-    //the recipe will be sent  as just text, you cant send an image in  plain text, to send text+img binary, you must use formData
     const formData = createFormData(recipe);
-    console.log('recipe: ', recipe)
-    console.log('formData:  ', formData)
-
-
     try {
-
       response = await fetch("/recipes-api", {
         method: "POST",
-        //not setting content-type to application json because recipe is formData includes strings and a file
-        /* headers: {
-           "Content-Type": "application/json", // Set content type to JSON
-         },*/
         body: formData
       });
 
       if (!response.ok) {
-        //const msg = await response.text();
         throw new Error(`${response.status} - ${response.statusText}`);
       }
       const responseText = await response.json()
@@ -172,30 +153,19 @@ export default function App() {
 
 
     } catch (e) {
-      console.error(e);
       setError(e.message, 'Recipe cannot be submitted at this time. Please try again later or contact the site administrator')
-
     }
     return response.ok
   }
   const editRecipe = async (recipe) => {
     let response;
-    //the recipe will be sent  as just text, you cant send an image in  plain text, to send text+img binary, you must use formData
     const formData = createFormData(recipe);
-
     try {
       response = await fetch(`/recipes-api/${recipe.id}`, {
         method: "PUT",
-        //not setting headers to application json because recipe is formData includes strings and a file
-        /* headers: {
-           "Content-Type": "application/json", // Set content type to JSON
-         },*/
-        //body: JSON.stringify(/*stringifiedRecipe*/recipe)
         body: formData
       });
-
       if (!response.ok) {
-        //const msg = await response.text();
         throw new Error(`${response.status} - ${response.statusText}`);
       }
       const responseText = await response.json()
@@ -205,10 +175,8 @@ export default function App() {
 
     }
     catch (e) {
-      console.error("Error:", e);
       setError(e.message, 'Recipe cannot be edited due to an invalid url or server error. Please try again later or contact the site administrator')
     }
-
     return response.ok
   }
   const editRecipesArray = (recipe) => {
@@ -223,22 +191,17 @@ export default function App() {
       let recipeIndex = newRecipes.findIndex(r => r.id === recipe.id);
       newRecipes[recipeIndex] = recipe
     }
-
     setState(prevState => {
       return {
         ...prevState,
         recipes: newRecipes
       }
     });
-
   }
-
-
-
   return (
     <>
       <Header showRecipeForm={showRecipeForm} />
-      {state.addingRecipe && (
+      {state.addingRecipe ?
         <RecipeForm
           closeForm={closeRecipeForm}
           addRecipe={addRecipe}
@@ -247,12 +210,12 @@ export default function App() {
           error={
             { errorString: errorState.errorString, errorMessage: errorState.errorMessage }
           }
-        />
-      )}
+        /> : null
+      }
       <Routes>
         <Route index="true" element={<RecipeList prevPage={prevPage} nextPage={nextPage} getPage={getPage} totalPages={state.totalPages} page={state.page} errorString={errorState.errorString} errorMessage={errorState.errorMessage} hideError={hideError} recipes={state.recipes} />} />
-        <Route path="/:id" element={<Recipe recipes={state.recipes} showRecipeForm={showRecipeForm} errorString={errorState.errorString} />} />
-        <Route path='*' element={<Navigate to='/' />} />
+        <Route path="/recipe/:id" element={<Recipe recipes={state.recipes} showRecipeForm={showRecipeForm} errorString={errorState.errorString} />} />
+        <Route path='*' element={<ErrorElem errorMessage="Sorry, we couldn’t find that page." errorString="404-not found" />} />
       </Routes>
       <Footer />
 

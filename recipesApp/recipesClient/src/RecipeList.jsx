@@ -16,7 +16,7 @@ export default function RecipeList(props) {
         : <div id="recipeInfos" >
           {recipes.length ?
             recipes.map(r =>
-              <NavLink className='recipeInfo' to={`/${r.id}`} key={r.id}>
+              <NavLink className='recipeInfo' to={`recipe/${r.id}`} key={r.id}>
                 <RecipeInfo name={r.name} category={r.category} image={r.image} />
               </NavLink>
             )

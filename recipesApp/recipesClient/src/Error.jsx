@@ -1,8 +1,6 @@
 import './Error.css'
 import {PropTypes} from 'prop-types'
-
 export default function Error(props) {
-
     return (
         <div id="error" >
           <p>{props.errorMessage}</p>

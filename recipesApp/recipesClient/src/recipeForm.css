@@ -10,6 +10,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .modal-content {
     background-color: white;
     padding: 20px;
@@ -17,14 +18,13 @@
     width: 50%;
     position: relative;
     z-index: 1000;
-    
 }
+
 form {
     display: flex;
     flex-direction: column;
     font-family: cursive;
-    
-    }
+}
 
 .close {
     position: absolute;
@@ -34,7 +34,8 @@ form {
     cursor: pointer;
 }
 
-input, select{
+input,
+select {
     margin-bottom: 20px;
     height: 2em;
 }

@@ -1,15 +1,8 @@
-.imgInRecipeInfo {
-  /* This sets up the container to be a positioning context */
-  /* Optional: allows the container to wrap the image */
-}
-
 .imgInRecipeInfo img {
   width: 100%;
   height: auto;
   border-radius: 30px;
   border: solid transparent;
-
-
 }
 
 .recipeInfo {

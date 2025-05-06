@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 export default function Pagination(props) {
   const { prevPage, nextPage, getPage, page, totalPages } = props;
-  //const numbers = Array.from({ length: totalPages }, (_, index) => index + 1);
   const firstThreePages = [1, 2, 3]
   const lastThreePages = [totalPages - 2, totalPages - 1, totalPages]
   const middleThreePages = [page - 1, page, page + 1];
@@ -18,9 +17,6 @@ export default function Pagination(props) {
           : middleThreePages
       : Array.from({ length: totalPages }, (_, index) => index + 1)
       
-
-
-  //!totalPages? null
   return (
     <nav aria-label="Page navigation example">
       <ul className="pagination" id="pagination">
@@ -38,7 +34,6 @@ export default function Pagination(props) {
             <span aria-hidden="true">&raquo;</span>
           </a>
         </li>
-
       </ul>
     </nav>
   )

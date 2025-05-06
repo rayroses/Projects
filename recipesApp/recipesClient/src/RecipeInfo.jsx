@@ -3,7 +3,7 @@ import './RecipeInfo.css'
 
 export default function RecipeInfo(props) {
     const { name, category, image } = props;
-    const imgJsx = image ? <img src={`${image}`} /> : <img src='defaultImg.png' />
+    const imgJsx = image ? <img src={`${image}`} /> : <img src='public/images/defaultImg.png' />
 
     return (
         <>

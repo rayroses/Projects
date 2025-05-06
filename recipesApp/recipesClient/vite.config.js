@@ -9,9 +9,16 @@ export default defineConfig({
        '/recipes-api': {
          target: 'http://localhost:3001',
          changeOrigin: true,
+         secure: false
        },
+       '/uploads':{
+        target: 'http://localhost:3001'
+       },
+       '/public/images':{
+        target: 'http://localhost:3001'
+       }
      },*/
-    port: 3000,  // Set the port to 3000
+    port: 3000,  // Set the vite dev server port to 3000
   },
   build: {
       sourcemap: true

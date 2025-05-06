@@ -1,5 +1,5 @@
 import './ListComponent.css';
-import PropTypes, { string } from 'prop-types'
+import PropTypes from 'prop-types'
 
 export default function ListComponent(props) {
   let { name, list } = props;
