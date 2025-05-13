@@ -6,9 +6,6 @@
     position: absolute;
     top: 0;
 }
-
-#showHidePicture {}
-
 #pictureDiv {
     margin-bottom: 20px;
 }
@@ -39,7 +36,6 @@
     border: solid black;
     cursor: pointer;
 }
-
 @media (min-width: 1025px)  {
 
     #ingredients,

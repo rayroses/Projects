@@ -2,13 +2,11 @@
     position: relative;
 }
 #recipeInfos {
-
     display: grid;
     grid-template-columns: 1fr ;
     padding: 20px;
     gap: 20px;
     background-color: black;
-
 }
 
 @media (min-width: 577px) and (max-width: 768px) {

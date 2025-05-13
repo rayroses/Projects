@@ -79,7 +79,6 @@ export default function RecipeForm(props) {
                     <div>
                         <button type="reset" onClick={handleClear}>clear</button>
                         <button type="submit">{props.recipeToEdit ? 'edit' : 'submit recipe'}</button>
-
                         <button type="button" onClick={closeForm}>cancel</button>
                     </div>
                 </form>
