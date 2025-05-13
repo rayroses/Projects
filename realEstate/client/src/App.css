@@ -6,7 +6,9 @@ body,
   width: 100%;
   margin: 0;
 }
-
+.error{
+  color: red;
+}
 header {
   background-color: rgb(163, 218, 220);
   border: solid darkred 1px;
@@ -26,9 +28,6 @@ a {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   padding: 5px;
 }
-
-
-
 a:hover {
   color: white
 }
@@ -38,7 +37,7 @@ a.active {
   text-decoration: underline;
 }
 
-li :not(:nth-child(3)) {
+li a {
   border-right: solid;
 }
 
@@ -50,7 +49,7 @@ header h1,
   list-style: none;
 }
 
-ul li {
+nav ul li {
   display: inline;
 }
 
@@ -67,12 +66,18 @@ p span {
 .homePage {
   font-size: 40px;
   background-image: linear-gradient(rgb(163, 218, 220), darkred);
-  -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
 
 .homePage p:first-child {
   font-size: 60px;
+}
+#submitMessage{
+  position:absolute;
+  top:200px;
+  left: 200px;
+  font-size: 3em;
 }
 
 .sellHomeForm p {
@@ -90,7 +95,6 @@ p span {
 
 .property {
   position: relative;
-
   display: flex;
   border: solid black 2px;
   border-radius: 3px;
@@ -105,7 +109,6 @@ p span {
 
 .buyHome h2 {
   font-family: 'Segoe UI';
-
 }
 
 .text h3 {

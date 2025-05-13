@@ -8,6 +8,8 @@ export default function BuyHome() {
         (async () => {
             try {
                 const r = await fetch('./properties.json');
+                /*the previous line fetches properties from a json file. to fetch from a db:
+                const r= await fetch('http://localhost:3003/')*/
                 if (!r.ok) {
                     throw new Error(`${r.status}- ${r.statusText}`)
                 }

@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router'
 import BuyHome from './BuyHome.jsx'
-import SellHome from './sellHome.jsx'
+import SellHome from './SellHome.jsx'
 import Home from './Home.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
