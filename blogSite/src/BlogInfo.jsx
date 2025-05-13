@@ -4,12 +4,10 @@ export default function BlogInfo(props) {
     const { name, website, company } = props;
 
     return (
-        <div className='blog' >
-            <p>{name}</p>
-            <a className="anchorInBlog" >{website}</a>
-            <p>{company.name}</p>
-            <p>{company.catchPhrase}</p>
-            <p>{company.bs}</p>
+        <div className='blogInfo' >
+            <p>By: {name}</p>
+            <p>website: <a className="anchorInBlogInfo" >{website}</a></p>
+            <p>company: {company.name}</p>
         </div>
     )
 }

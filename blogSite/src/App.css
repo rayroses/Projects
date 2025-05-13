@@ -1,3 +1,18 @@
+a {
+  text-decoration: none;
+  font-size: 2rem;
+  color: blue
+}
+
+a:hover {
+  color: red
+}
+
+.outlet {
+  width: 96%;
+  margin: auto;
+}
+
 header {
   font-family: Georgia, 'Times New Roman', Times, serif;
   border: solid transparent;
@@ -28,26 +43,11 @@ header {
   color: rgb(129, 16, 54)
 }
 
-#blogs a :not(.anchorInBlog),
-#blogs a * :not(.anchorInBlog) {
+#blogs a :not(.anchorInBlogInfo),
+#blogs a * :not(.anchorInBlogInfo) {
   text-decoration: none;
   color: black;
 
-}
-
-a {
-  text-decoration: none;
-  font-size: 2rem;
-  color: blue
-}
-
-a:hover {
-  color: red
-}
-
-.outlet {
-  width: 96%;
-  margin: auto;
 }
 
 #blogsDiv h2,
@@ -70,7 +70,7 @@ a:hover {
   grid-template-columns: 1fr
 }
 
-.blog,
+.blogInfo,
 .post {
   border: solid transparent;
   border-radius: 30px;

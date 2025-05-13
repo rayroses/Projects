@@ -3,7 +3,7 @@ import { NavLink } from 'react-router'
 
 export default function Navbar() {
     return (
-        <NavLink to='/blogList'>
+        <NavLink to='/blogs'>
             <a id="blogsLink">blogs</a>
         </NavLink>
     )

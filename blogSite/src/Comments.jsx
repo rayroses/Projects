@@ -1,17 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { fetchData } from './App';
 import PropTypes from 'prop-types';
 
 
 export default function Comments(props) {
- //  let [comments, setComments] = useState([]);
-  const {comments, setComments, postId}=props
+    const { comments, setComments, postId } = props
 
     useEffect(() => {
         (async () => {
-           if (!comments?.length){
-            const comments = await fetchData(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`);
-            setComments(comments);
+            if (!comments?.length) {
+                const fetchedComments = await fetchData(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`);
+                setComments(fetchedComments);
             }
         })();
     }, [postId, comments, setComments]);
@@ -32,7 +31,7 @@ export default function Comments(props) {
         <>{commentsJsx}</>
     )
 }
-Comments.propTypes={
+Comments.propTypes = {
     postId: PropTypes.number.isRequired,
     comments: PropTypes.arrayOf(PropTypes.shape({})),
     setComments: PropTypes.func

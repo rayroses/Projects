@@ -1,15 +1,12 @@
 
 import { PropTypes } from 'prop-types';
 import { useEffect, useState } from 'react';
-import { fetchData } from './App';
 import Comments from './Comments';
 
 export default function Post(props) {
     const [commentsState, toggleComments] = useState(false);
     const [divClass, setClass] = useState('');
     let [comments, setComments] = useState([]);
-
-
 
     useEffect(() => {
         if (commentsState) {
